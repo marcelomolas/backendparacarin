@@ -159,14 +159,14 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:jboss/datasources/laboratorio" pool-name="LaboratorioPostgres" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:postgresql://localhost:5432/bdpwd</connection-url>
+                    <connection-url>jdbc:postgresql://localhost:5433/bdpwd</connection-url>
                     <driver>postgres</driver>
                     <pool>
                         <max-pool-size>20</max-pool-size>
                     </pool>
                     <security>
-                        <user-name>utgreosjhjfwzt</user-name>
-                        <password>2cd599a87e90dbadf4deb6453a66fc4d88ba167fe7845ada302edd60a7c30cdd</password>
+                        <user-name>postgres</user-name>
+                        <password>09828099172207</password>
                     </security>
                 </datasource>
                 <drivers>
@@ -544,7 +544,7 @@
     </socket-binding-group>
     <deployments>
         <deployment name="prueba.war" runtime-name="prueba.war">
-            <content sha1="1ce97a7b8505f5e5f54f32deb4342e5aa5c8f62a"/>
+            <content sha1="f3f994c41f49e0aee28903095ba09befaeaceb55"/>
         </deployment>
     </deployments>
 </server>

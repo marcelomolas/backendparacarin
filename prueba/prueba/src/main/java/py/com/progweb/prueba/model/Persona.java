@@ -10,7 +10,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "persona")
+@Table(name="persona")
 public class Persona {
     @Id
     @Column(name = "id_persona")
@@ -18,22 +18,34 @@ public class Persona {
     @GeneratedValue(generator = "personaSec", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "personaSec",sequenceName = "persona_sec", allocationSize = 0)
     private Integer idPersona;
+    @Column(name = "nombre", length = 50)
+    @Basic(optional = false)
     private String nombre;
+    @Column(name = "apellido", length = 50)
+    @Basic(optional = false)
     private String apellido;
 
-    String getNombre() {
+    public Integer getidPersona(){
+        return idPersona;
+    }
+
+    public void setidPersona(Integer idPersona) {
+        this.idPersona = idPersona;
+    }
+
+    public String getNombre() {
         return nombre;
     }
 
-    void setNombre(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     };
 
-    String getApellido() {
+    public String getApellido() {
         return apellido;
     };
 
-    void setApellido(String apellido) {
+    public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 

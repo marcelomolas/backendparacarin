@@ -1,0 +1,209 @@
+2021-03-20 21:46:23,232 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-6) WFLYDS0013: Started FileSystemDeploymentService for directory C:\Users\marce\Desktop\backend\proyectoPP\backend\laboratorio\standalone\deployments
+2021-03-20 21:46:23,240 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "prueba.war" (runtime-name: "prueba.war")
+2021-03-20 21:46:25,485 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2021-03-20 21:46:28,533 INFO  [org.jboss.ws.common.management] (MSC service thread 1-2) JBWS022052: Starting JBossWS 5.3.0.Final (Apache CXF 3.3.3) 
+2021-03-20 21:46:54,242 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry jboss-logging.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/ironjacamar-validator-1.0.6.Final.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:54,288 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry jboss-common-core.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/ironjacamar-validator-1.0.6.Final.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:54,289 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry ironjacamar-spec-api.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/ironjacamar-validator-1.0.6.Final.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:54,289 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry papaki-core.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/ironjacamar-validator-1.0.6.Final.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:54,290 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry javassist.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/ironjacamar-validator-1.0.6.Final.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:54,290 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry ironjacamar-common-api.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/ironjacamar-validator-1.0.6.Final.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:54,291 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry ironjacamar-common-impl.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/ironjacamar-validator-1.0.6.Final.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:54,292 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry slf4j-api-1.5.6.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1.jbossorg-1.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:54,292 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry slf4j-jdk14-1.5.6.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1.jbossorg-1.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:54,293 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry concurrent-1.3.2.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1.jbossorg-1.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:54,293 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry antlr-2.7.2.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1.jbossorg-1.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:54,294 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry slf4j-api-1.5.6.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1jboss.patch01-brew.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:54,294 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry slf4j-jdk14-1.5.6.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1jboss.patch01-brew.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:54,295 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry concurrent-1.3.2.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1jboss.patch01-brew.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:54,295 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0059: Class Path entry antlr-2.7.2.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1jboss.patch01-brew.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 21:46:59,148 INFO  [org.jboss.as.pojo] (MSC service thread 1-2) WFLYPOJO0001: Found legacy bean/pojo namespace: urn:jboss:bean-deployer:2.0 - might be missing some xml features (potential exceptions).
+2021-03-20 21:47:02,938 INFO  [org.jboss.as.jpa] (MSC service thread 1-2) WFLYJPA0002: Read persistence.xml for pruebaPU
+2021-03-20 21:47:06,796 INFO  [org.jboss.weld.deployer] (MSC service thread 1-4) WFLYWELD0003: Processing weld deployment prueba.war
+2021-03-20 21:47:09,754 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-4) HV000001: Hibernate Validator 6.0.18.Final
+2021-03-20 21:47:12,596 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-1) ISPN000128: Infinispan version: Infinispan 'Infinity Minus ONE +2' 9.4.16.Final
+2021-03-20 21:47:13,243 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-4) WFLYEJB0473: JNDI bindings for session bean named 'PersonaDAO' in deployment unit 'deployment "prueba.war"' are as follows:
+
+	java:global/prueba/PersonaDAO!py.com.progweb.prueba.ejb.PersonaDAO
+	java:app/prueba/PersonaDAO!py.com.progweb.prueba.ejb.PersonaDAO
+	java:module/PersonaDAO!py.com.progweb.prueba.ejb.PersonaDAO
+	ejb:/prueba/PersonaDAO!py.com.progweb.prueba.ejb.PersonaDAO
+	java:global/prueba/PersonaDAO
+	java:app/prueba/PersonaDAO
+	java:module/PersonaDAO
+
+2021-03-20 21:47:14,572 WARN  [org.jboss.as.jaxrs] (MSC service thread 1-3) WFLYRS0018: Explicit usage of Jackson annotation in a JAX-RS deployment; the system will disable JSON-B processing for the current deployment. Consider setting the 'resteasy.preferJacksonOverJsonB' property to 'false' to restore JSON-B.
+2021-03-20 21:47:15,140 INFO  [org.jboss.weld.Version] (MSC service thread 1-3) WELD-000900: 3.1.2 (Final)
+2021-03-20 21:47:15,776 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 78) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'prueba.war#pruebaPU'
+2021-03-20 21:47:17,083 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 78) HHH000204: Processing PersistenceUnitInfo [
+	name: pruebaPU
+	...]
+2021-03-20 21:47:18,493 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 79) WFLYCLINF0002: Started client-mappings cache from ejb container
+2021-03-20 21:47:20,752 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 78) HHH000412: Hibernate Core {5.3.13.Final}
+2021-03-20 21:47:20,755 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 78) HHH000206: hibernate.properties not found
+2021-03-20 21:47:22,143 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 78) HCANN000001: Hibernate Commons Annotations {5.0.5.Final}
+2021-03-20 21:47:22,656 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 78) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'prueba.war#pruebaPU'
+2021-03-20 21:47:23,902 WARN  [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (ServerService Thread Pool -- 78) IJ000604: Throwable while attempting to get a new connection: null: javax.resource.ResourceException: IJ031084: Unable to create connection
+	at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createLocalManagedConnection(LocalManagedConnectionFactory.java:345)
+	at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.getLocalManagedConnection(LocalManagedConnectionFactory.java:352)
+	at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createManagedConnection(LocalManagedConnectionFactory.java:287)
+	at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreConcurrentLinkedDequeManagedConnectionPool.createConnectionEventListener(SemaphoreConcurrentLinkedDequeManagedConnectionPool.java:1328)
+	at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreConcurrentLinkedDequeManagedConnectionPool.getConnection(SemaphoreConcurrentLinkedDequeManagedConnectionPool.java:499)
+	at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getSimpleConnection(AbstractPool.java:632)
+	at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getConnection(AbstractPool.java:604)
+	at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.getManagedConnection(AbstractConnectionManager.java:624)
+	at org.jboss.jca.core.connectionmanager.tx.TxConnectionManagerImpl.getManagedConnection(TxConnectionManagerImpl.java:440)
+	at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.allocateConnection(AbstractConnectionManager.java:789)
+	at org.jboss.jca.adapters.jdbc.WrapperDataSource.getConnection(WrapperDataSource.java:151)
+	at org.jboss.as.connector.subsystems.datasources.WildFlyDataSource.getConnection(WildFlyDataSource.java:64)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:179)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:119)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:904)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.jboss.as.jpa.hibernate5.TwoPhaseBootstrapImpl.build(TwoPhaseBootstrapImpl.java:44)
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$1$1.run(PersistenceUnitServiceImpl.java:170)
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$1$1.run(PersistenceUnitServiceImpl.java:128)
+	at org.wildfly.security.manager.WildFlySecurityManager.doChecked(WildFlySecurityManager.java:658)
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$1.run(PersistenceUnitServiceImpl.java:212)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1982)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Caused by: org.postgresql.util.PSQLException: The authentication type 10 is not supported. Check that you have configured the pg_hba.conf file to include the client's IP address or subnet, and that it is using an authentication scheme supported by the driver.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:634)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:217)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:215)
+	at org.postgresql.Driver.makeConnection(Driver.java:404)
+	at org.postgresql.Driver.connect(Driver.java:272)
+	at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createLocalManagedConnection(LocalManagedConnectionFactory.java:321)
+	... 38 more
+
+2021-03-20 21:47:23,905 WARN  [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator] (ServerService Thread Pool -- 78) HHH000342: Could not obtain connection to query metadata : javax.resource.ResourceException: IJ000453: Unable to get managed connection for java:jboss/datasources/laboratorio
+2021-03-20 21:47:24,219 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 78) HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-03-20 21:47:24,338 INFO  [org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl] (ServerService Thread Pool -- 78) HHH000422: Disabling contextual LOB creation as connection was null
+2021-03-20 21:47:24,402 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 78) HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@628724e7
+2021-03-20 21:47:24,454 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 78) Envers integration enabled? : true
+2021-03-20 21:47:28,047 INFO  [io.smallrye.metrics] (MSC service thread 1-5) MicroProfile: Metrics activated
+2021-03-20 21:47:32,381 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 78) RESTEASY002225: Deploying javax.ws.rs.core.Application: class py.com.progweb.prueba.rest.ApplicationConfig$Proxy$_$$_WeldClientProxy
+2021-03-20 21:47:32,525 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 78) WFLYUT0021: Registered web context: '/prueba' for server 'default-server'
+2021-03-20 21:47:32,822 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0010: Deployed "prueba.war" (runtime-name : "prueba.war")
+2021-03-20 21:47:32,985 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2021-03-20 21:47:32,990 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2021-03-20 21:47:32,990 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2021-03-20 21:47:32,991 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 18.0.1.Final (WildFly Core 10.0.3.Final) started in 107628ms - Started 494 of 707 services (376 services are lazy, passive or on-demand)
+2021-03-20 22:32:08,426 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location C:\Users\marce\Desktop\backend\proyectoPP\backend\laboratorio\standalone\data\content\1f\d9d8d1405cd546bec5a402d0de0e1dbf72cb1a\content
+2021-03-20 22:32:11,795 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 84) WFLYUT0022: Unregistered web context: '/prueba' from server 'default-server'
+2021-03-20 22:32:15,969 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 8) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'prueba.war#pruebaPU'
+2021-03-20 22:32:16,584 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 8) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@5464618e
+2021-03-20 22:32:16,985 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 8) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'prueba.war#pruebaPU'
+2021-03-20 22:32:23,954 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0028: Stopped deployment prueba.war (runtime-name: prueba.war) in 15015ms
+2021-03-20 22:32:24,021 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "prueba.war" (runtime-name: "prueba.war")
+2021-03-20 22:32:53,817 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry jboss-logging.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/ironjacamar-validator-1.0.6.Final.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:53,818 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry jboss-common-core.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/ironjacamar-validator-1.0.6.Final.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:53,818 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry ironjacamar-spec-api.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/ironjacamar-validator-1.0.6.Final.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:53,819 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry papaki-core.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/ironjacamar-validator-1.0.6.Final.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:53,819 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry javassist.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/ironjacamar-validator-1.0.6.Final.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:53,819 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry ironjacamar-common-api.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/ironjacamar-validator-1.0.6.Final.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:53,819 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry ironjacamar-common-impl.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/ironjacamar-validator-1.0.6.Final.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:53,821 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry slf4j-api-1.5.6.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1.jbossorg-1.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:53,821 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry slf4j-jdk14-1.5.6.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1.jbossorg-1.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:53,822 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry concurrent-1.3.2.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1.jbossorg-1.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:53,822 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry antlr-2.7.2.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1.jbossorg-1.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:53,822 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry slf4j-api-1.5.6.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1jboss.patch01-brew.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:53,823 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry slf4j-jdk14-1.5.6.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1jboss.patch01-brew.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:53,823 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry concurrent-1.3.2.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1jboss.patch01-brew.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:53,823 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0059: Class Path entry antlr-2.7.2.jar in /C:/Windows/content/prueba.war/WEB-INF/lib/jacorb-2.3.1jboss.patch01-brew.jar  does not point to a valid jar for a Class-Path reference.
+2021-03-20 22:32:54,031 INFO  [org.jboss.as.pojo] (MSC service thread 1-2) WFLYPOJO0001: Found legacy bean/pojo namespace: urn:jboss:bean-deployer:2.0 - might be missing some xml features (potential exceptions).
+2021-03-20 22:32:54,171 INFO  [org.jboss.as.jpa] (MSC service thread 1-2) WFLYJPA0002: Read persistence.xml for pruebaPU
+2021-03-20 22:32:56,400 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) WFLYWELD0003: Processing weld deployment prueba.war
+2021-03-20 22:32:56,469 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 8) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'prueba.war#pruebaPU'
+2021-03-20 22:32:56,495 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 8) HHH000204: Processing PersistenceUnitInfo [
+	name: pruebaPU
+	...]
+2021-03-20 22:32:56,644 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-1) WFLYEJB0473: JNDI bindings for session bean named 'PersonaDAO' in deployment unit 'deployment "prueba.war"' are as follows:
+
+	java:global/prueba/PersonaDAO!py.com.progweb.prueba.ejb.PersonaDAO
+	java:app/prueba/PersonaDAO!py.com.progweb.prueba.ejb.PersonaDAO
+	java:module/PersonaDAO!py.com.progweb.prueba.ejb.PersonaDAO
+	ejb:/prueba/PersonaDAO!py.com.progweb.prueba.ejb.PersonaDAO
+	java:global/prueba/PersonaDAO
+	java:app/prueba/PersonaDAO
+	java:module/PersonaDAO
+
+2021-03-20 22:32:56,796 WARN  [org.jboss.as.jaxrs] (MSC service thread 1-4) WFLYRS0018: Explicit usage of Jackson annotation in a JAX-RS deployment; the system will disable JSON-B processing for the current deployment. Consider setting the 'resteasy.preferJacksonOverJsonB' property to 'false' to restore JSON-B.
+2021-03-20 22:32:56,919 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 8) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'prueba.war#pruebaPU'
+2021-03-20 22:32:57,510 WARN  [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (ServerService Thread Pool -- 8) IJ000604: Throwable while attempting to get a new connection: null: javax.resource.ResourceException: IJ031084: Unable to create connection
+	at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createLocalManagedConnection(LocalManagedConnectionFactory.java:345)
+	at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.getLocalManagedConnection(LocalManagedConnectionFactory.java:352)
+	at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createManagedConnection(LocalManagedConnectionFactory.java:287)
+	at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreConcurrentLinkedDequeManagedConnectionPool.createConnectionEventListener(SemaphoreConcurrentLinkedDequeManagedConnectionPool.java:1328)
+	at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreConcurrentLinkedDequeManagedConnectionPool.getConnection(SemaphoreConcurrentLinkedDequeManagedConnectionPool.java:499)
+	at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getSimpleConnection(AbstractPool.java:632)
+	at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getConnection(AbstractPool.java:604)
+	at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.getManagedConnection(AbstractConnectionManager.java:624)
+	at org.jboss.jca.core.connectionmanager.tx.TxConnectionManagerImpl.getManagedConnection(TxConnectionManagerImpl.java:440)
+	at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.allocateConnection(AbstractConnectionManager.java:789)
+	at org.jboss.jca.adapters.jdbc.WrapperDataSource.getConnection(WrapperDataSource.java:151)
+	at org.jboss.as.connector.subsystems.datasources.WildFlyDataSource.getConnection(WildFlyDataSource.java:64)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:179)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:119)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:904)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.jboss.as.jpa.hibernate5.TwoPhaseBootstrapImpl.build(TwoPhaseBootstrapImpl.java:44)
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$1$1.run(PersistenceUnitServiceImpl.java:170)
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$1$1.run(PersistenceUnitServiceImpl.java:128)
+	at org.wildfly.security.manager.WildFlySecurityManager.doChecked(WildFlySecurityManager.java:658)
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$1.run(PersistenceUnitServiceImpl.java:212)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1982)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Caused by: org.postgresql.util.PSQLException: The authentication type 10 is not supported. Check that you have configured the pg_hba.conf file to include the client's IP address or subnet, and that it is using an authentication scheme supported by the driver.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:634)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:217)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:215)
+	at org.postgresql.Driver.makeConnection(Driver.java:404)
+	at org.postgresql.Driver.connect(Driver.java:272)
+	at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createLocalManagedConnection(LocalManagedConnectionFactory.java:321)
+	... 38 more
+
+2021-03-20 22:32:57,512 WARN  [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator] (ServerService Thread Pool -- 8) HHH000342: Could not obtain connection to query metadata : javax.resource.ResourceException: IJ000453: Unable to get managed connection for java:jboss/datasources/laboratorio
+2021-03-20 22:32:57,513 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 8) HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-03-20 22:32:57,514 INFO  [org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl] (ServerService Thread Pool -- 8) HHH000422: Disabling contextual LOB creation as connection was null
+2021-03-20 22:32:57,516 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 8) HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@628724e7
+2021-03-20 22:32:57,518 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 8) Envers integration enabled? : true
+2021-03-20 22:32:57,905 INFO  [io.smallrye.metrics] (MSC service thread 1-8) MicroProfile: Metrics activated
+2021-03-20 22:32:58,800 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 89) RESTEASY002225: Deploying javax.ws.rs.core.Application: class py.com.progweb.prueba.rest.ApplicationConfig$Proxy$_$$_WeldClientProxy
+2021-03-20 22:32:58,807 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 89) WFLYUT0021: Registered web context: '/prueba' for server 'default-server'
+2021-03-20 22:33:02,172 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0016: Replaced deployment "prueba.war" with deployment "prueba.war"
+2021-03-20 22:33:02,176 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0002: Content removed from location C:\Users\marce\Desktop\backend\proyectoPP\backend\laboratorio\standalone\data\content\1c\e97a7b8505f5e5f54f32deb4342e5aa5c8f62a\content
