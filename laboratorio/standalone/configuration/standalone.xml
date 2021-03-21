@@ -166,7 +166,7 @@
                     </pool>
                     <security>
                         <user-name>postgres</user-name>
-                        <password>09828099172207</password>
+                        <password>(aquiponestucontraseña)</password>
                     </security>
                 </datasource>
                 <drivers>
