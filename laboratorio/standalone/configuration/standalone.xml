@@ -159,7 +159,7 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:jboss/datasources/laboratorio" pool-name="LaboratorioPostgres" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:postgresql://localhost:5432/bdpwd</connection-url>
+                    <connection-url>jdbc:postgresql://localhost:5432/bdpwb</connection-url>
                     <driver>postgres</driver>
                     <pool>
                         <max-pool-size>20</max-pool-size>
