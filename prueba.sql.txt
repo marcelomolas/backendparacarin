@@ -1,0 +1,93 @@
+CREATE TABLE public.cliente
+(
+    id_cliente integer NOT NULL,
+    apellido character varying(50) NOT NULL,
+    nombre character varying(50) NOT NULL,
+    nro_documento integer NOT NULL,
+    tipo_documento character varying(50) NOT NULL,
+    nacionalidad character varying(50) NOT NULL,
+    email character varying(50) NOT NULL,
+
+    CONSTRAINT cliente_pkey PRIMARY KEY (id_cliente)
+);
+CREATE SEQUENCE public.cliente_sec;
+
+CREATE TABLE public.vale
+(
+    id_vale integer NOT NULL,
+    descripcion character varying(50) NOT NULL,
+    pts_requeridos integer NOT NULL,
+    CONSTRAINT vale_pkey PRIMARY KEY (id_vale)
+);
+CREATE SEQUENCE public.vale_sec;
+
+CREATE TABLE public.rango
+(
+    id_rango integer NOT NULL,
+    lim_inf integer NOT NULL,
+    lim_sup integer NOT NULL,
+    conversion integer NOT NULL,
+    CONSTRAINT rango_pkey PRIMARY KEY (id_rango)
+);
+CREATE SEQUENCE public.rango_sec
+
+CREATE TABLE public.vencimiento
+(
+    id_venc integer NOT NULL,
+    fecha_inicio datetime NOT NULL,
+    fecha_fin datetime NOT NULL,
+    duracion integer NOT NULL,
+    CONSTRAINT venc_pkey PRIMARY KEY (id_rango)
+);
+CREATE SEQUENCE public.vencimiento_sec
+
+CREATE TABLE public.bolsa
+(
+    id_bolsa integer NOT NULL,
+    id_cliente integer NOT NULL,
+    fecha_asig datetime NOT NULL,
+    fecha_caduc datetime NOT NULL,
+    pts_total integer NOT NULL,
+    pts_utilizados integer NOT NULL,
+    pts_saldo integer NOT NULL,
+    monto integer NOT NULL,
+    CONSTRAINT bolsa_pkey PRIMARY KEY (id_bolsa),
+    CONSTRAINT fk_1 FOREIGN KEY (id_cliente)
+        REFERENCES public.cliente (id_cliente) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+CREATE SEQUENCE public.agenda_sec;
+
+CREATE TABLE public.uso_cabecera
+(
+    id_cabecera integer NOT NULL,
+    id_cliente integer NOT NULL,
+    pts_utilizados integer NOT NULL,
+    fecha datetime NOT NULL,
+    descripcion character varying(200) NOT NULL,
+    CONSTRAINT cabecera_pkey PRIMARY KEY (id_cabecera),
+    CONSTRAINT fk_1 FOREIGN KEY (id_cliente)
+        REFERENCES public.cliente (id_cliente) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+CREATE SEQUENCE public.cabecera_sec;
+
+CREATE TABLE public.uso_detalle
+(
+    id_detalle integer NOT NULL,
+    id_cabecera integer NOT NULL,
+    id_bolsa integer NOT NULL,
+    pts_utilizados integer NOT NULL,    
+    CONSTRAINT detalle_pkey PRIMARY KEY (id_detalle),
+    CONSTRAINT fk_1 FOREIGN KEY (id_cabecera)
+        REFERENCES public.uso_cabecera (id_cabecera) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT fk_2 FOREIGN KEY (id_bolsa)
+        REFERENCES public.bolsa (id_bolsa) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+CREATE SEQUENCE public.detalle_sec;
