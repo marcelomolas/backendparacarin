@@ -7,7 +7,8 @@ CREATE TABLE public.cliente
     tipo_documento character varying(50) NOT NULL,
     nacionalidad character varying(50) NOT NULL,
     email character varying(50) NOT NULL,
-
+    telefono character varying(50) NOT NULL,
+    fecha_nac date NOT NULL,
     CONSTRAINT cliente_pkey PRIMARY KEY (id_cliente)
 );
 CREATE SEQUENCE public.cliente_sec;
@@ -29,24 +30,24 @@ CREATE TABLE public.rango
     conversion integer NOT NULL,
     CONSTRAINT rango_pkey PRIMARY KEY (id_rango)
 );
-CREATE SEQUENCE public.rango_sec
+CREATE SEQUENCE public.rango_sec;
 
 CREATE TABLE public.vencimiento
 (
     id_venc integer NOT NULL,
-    fecha_inicio datetime NOT NULL,
-    fecha_fin datetime NOT NULL,
+    fecha_inicio date NOT NULL,
+    fecha_fin date NOT NULL,
     duracion integer NOT NULL,
-    CONSTRAINT venc_pkey PRIMARY KEY (id_rango)
+    CONSTRAINT venc_pkey PRIMARY KEY (id_venc)
 );
-CREATE SEQUENCE public.vencimiento_sec
+CREATE SEQUENCE public.vencimiento_sec;
 
 CREATE TABLE public.bolsa
 (
     id_bolsa integer NOT NULL,
     id_cliente integer NOT NULL,
-    fecha_asig datetime NOT NULL,
-    fecha_caduc datetime NOT NULL,
+    fecha_asig date NOT NULL,
+    fecha_caduc date NOT NULL,
     pts_total integer NOT NULL,
     pts_utilizados integer NOT NULL,
     pts_saldo integer NOT NULL,
@@ -57,14 +58,14 @@ CREATE TABLE public.bolsa
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 );
-CREATE SEQUENCE public.agenda_sec;
+CREATE SEQUENCE public.bolsa_sec;
 
 CREATE TABLE public.uso_cabecera
 (
     id_cabecera integer NOT NULL,
     id_cliente integer NOT NULL,
     pts_utilizados integer NOT NULL,
-    fecha datetime NOT NULL,
+    fecha date NOT NULL,
     descripcion character varying(200) NOT NULL,
     CONSTRAINT cabecera_pkey PRIMARY KEY (id_cabecera),
     CONSTRAINT fk_1 FOREIGN KEY (id_cliente)
