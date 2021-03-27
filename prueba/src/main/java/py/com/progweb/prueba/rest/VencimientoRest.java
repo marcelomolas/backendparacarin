@@ -15,7 +15,7 @@ public class VencimientoRest {
     private VencimientoDAO vencimientoDAO;
 
     @GET
-    @Path("/{id}")
+    @Path("/")
     public Response listar(){
         return Response.ok(vencimientoDAO.lista()).build();
     }

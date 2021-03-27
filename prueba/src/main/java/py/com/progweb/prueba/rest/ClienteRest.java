@@ -16,7 +16,7 @@ public class ClienteRest {
     private ClienteDAO clienteDAO;
 
     @GET
-    @Path("/{id}")
+    @Path("/")
     public Response listar(){
         return Response.ok(clienteDAO.lista()).build();
     }

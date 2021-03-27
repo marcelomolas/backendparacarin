@@ -15,7 +15,7 @@ public class ValeRest {
     private ValeDAO valeDAO;
 
     @GET
-    @Path("/{id}")
+    @Path("/")
     public Response listar(){
         return Response.ok(valeDAO.lista()).build();
     }
