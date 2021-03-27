@@ -1,23 +1,28 @@
-import React,{useState,useEffect} from 'react'
-import axios from 'axios';
+import React from 'react'
+import Nav from './components/Nav'
+import Clientes from './components/Clientes'
+import Puntos from './components/Puntos'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+
 function App() {
-
-  const [datos,setDatos] = useState([])
-  useEffect(() => {
-      // GET request using fetch inside useEffect React hook
-       axios.get("http://localhost:8080/prueba/cliente")
-              .then(response => response.data).then(data => {
-                console.log(data);
-                return setDatos(data)
-              }).catch(console.log);
-  // empty dependency array means this effect will only run once (like componentDidMount in classes)
-  }, []);
-
   return (
-    <div className="App">
-
-    </div>
+    <Router>
+      <div className="App">
+        <Nav />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/clientes" component={Clientes} />
+          <Route path="/puntos" component={Puntos} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
+
+const Home = () => (
+  <div>
+    <h1>Home</h1>
+  </div>
+);
 
 export default App;
