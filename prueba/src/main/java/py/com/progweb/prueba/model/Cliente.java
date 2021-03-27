@@ -52,7 +52,7 @@ public class Cliente {
         return idCliente;
     }
 
-    public void setidPersona(Integer idCliente) {
+    public void setidCliente(Integer idCliente) {
         this.idCliente = idCliente;
     }
 
