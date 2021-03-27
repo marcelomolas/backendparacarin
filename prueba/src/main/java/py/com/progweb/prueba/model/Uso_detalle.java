@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -20,12 +23,12 @@ public class Uso_detalle {
     @GeneratedValue(generator = "uso_detalleSec", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "uso_detalleSec",sequenceName = "uso_detalle_sec", allocationSize = 0)
     private Integer idUso_detalle;
-    @Column(name = "id_uso_cabecera")
-    @Basic(optional = false)
-    private Integer idUso_cabecera;
-    @Column(name = "id_bolsa")
-    @Basic(optional = false)
-    private Integer idBolsa;
+    @JoinColumn(name = "id_uso_cabecera",referencedColumnName = "id_uso_cabecera")
+    @ManyToOne(optional = false)
+    private Uso_cabecera uso_cabecera;
+    @JoinColumn(name = "id_bolsa",referencedColumnName = "id_bolsa")
+    @OneToOne(optional = false)
+    private Bolsa bolsa;
     @Column(name = "fecha")
     @Basic(optional = false)
     private Date fecha;
@@ -41,20 +44,20 @@ public class Uso_detalle {
         this.idUso_detalle = idUso_detalle;
     }
 
-    public Integer getidUso_cabecera(){
-        return idUso_cabecera;
+    public Uso_cabecera getUso_cabecera(){
+        return uso_cabecera;
     }
 
-    public void setidUso_cabecera(Integer idUso_cabecera) {
-        this.idUso_cabecera = idUso_cabecera;
+    public void setUso_cabecera(Uso_cabecera uso_cabecera) {
+        this.uso_cabecera = uso_cabecera;
     }
 
-    public Integer getidBolsa() {
-        return idBolsa;
+    public Bolsa getBolsa() {
+        return bolsa;
     }
 
-    public void setidBolsa(Integer idBolsa) {
-        this.idBolsa = idBolsa;
+    public void setBolsa(Bolsa bolsa) {
+        this.bolsa = bolsa;
     }
 
     public Integer getPts_utilizados() {

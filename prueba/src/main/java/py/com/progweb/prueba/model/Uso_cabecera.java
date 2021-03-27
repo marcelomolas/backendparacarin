@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -20,9 +22,9 @@ public class Uso_cabecera{
     @GeneratedValue(generator = "uso_cabeceraSec", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "uso_cabeceraSec",sequenceName = "uso_cabecera_sec", allocationSize = 0)
     private Integer idUso_cabecera;
-    @Column(name = "id_cliente")
-    @Basic(optional = false)
-    private Integer idCliente;
+    @JoinColumn(name = "id_cliente",referencedColumnName = "id_cliente")
+    @OneToOne(optional = false)
+    private Cliente cliente;
     @Column(name = "pts_utilizados")
     @Basic(optional = false)
     private Integer pts_utilizados;
@@ -42,12 +44,12 @@ public class Uso_cabecera{
         this.idUso_cabecera = idUso_cabecera;
     }
 
-    public Integer getidCliente() {
-        return idCliente;
+    public Cliente getCliente(){
+        return cliente;
     }
 
-    public void setidCliente(Integer idCliente) {
-        this.idCliente = idCliente;
+    public void setCliente(Cliente cliente){
+        this.cliente = cliente;
     }
 
     public Integer getPts_utilizados() {
