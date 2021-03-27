@@ -24,10 +24,12 @@ public class ClienteDAO {
         return (List<Cliente>) q.getResultList();
     }
 
-    public void actualizar(Cliente entidad){
+    public void actualizar(int id, Cliente entidad) {
+        Cliente c = this.en.merge(entidad);
     }
 
-    public void borrar(Cliente entidad){
-        this.en.remove(entidad);
+    public void eliminar(int id){
+        Cliente c = this.en.find(Cliente.class, id);
+        this.en.remove(c);
     }
 }
