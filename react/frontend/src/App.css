@@ -18,3 +18,15 @@ nav{
   align-items: center;
   list-style: none;
 }
+
+.overlay {
+  position: fixed;
+  width: 50%;
+  text-align: center;
+  background-color: rgb(4, 63, 129);
+  border-radius: 10px;
+  font-size: 20px;
+  height: 30px;
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}

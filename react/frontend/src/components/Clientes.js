@@ -23,8 +23,10 @@ const useStyles = makeStyles({
     pos: {
         marginBottom: 12,
     },
-    button: {
-        spacing: 8,
+    div: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
     }
     })
 
@@ -75,10 +77,12 @@ function Clientes(){
                 ))}
                 </TableBody>
             </Table>
+            <div >
+                <Button variant="contained" color="primary" onClick="displayAgregarCliente()">
+                    AGREGAR
+                </Button>
+            </div>
             </TableContainer>
-            <Button variant="contained" color="primary">
-            AGREGAR
-            </Button>
         </Box>
         </div>
     );
