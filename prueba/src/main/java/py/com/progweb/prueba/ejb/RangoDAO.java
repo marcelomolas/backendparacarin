@@ -24,10 +24,12 @@ public class RangoDAO {
         return (List<Rango>) q.getResultList();
     }
 
-    public void actualizar(Rango entidad){
+    public void actualizar(int id, Rango entidad) {
+        Rango q = this.en.merge(entidad);
     }
-
-    public void borrar(Rango entidad){
-        this.en.remove(entidad);
+    
+    public void eliminar(int id){
+        Rango r = this.en.find(Rango.class, id);
+        this.en.remove(r);
     }
 }

@@ -24,10 +24,12 @@ public class Uso_detalleDAO {
         return (List<Uso_detalle>) q.getResultList();
     }
 
-    public void actualizar(Uso_detalle entidad){
+    public void actualizar(int id, Uso_detalle entidad) {
+        Uso_detalle q = this.en.merge(entidad);
     }
-
-    public void borrar(Uso_detalle entidad){
-        this.en.remove(entidad);
+    
+    public void eliminar(int id){
+        Uso_detalle q = this.en.find(Uso_detalle.class, id);
+        this.en.remove(q);
     }
 }

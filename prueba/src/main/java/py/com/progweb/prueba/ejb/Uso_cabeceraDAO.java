@@ -24,10 +24,12 @@ public class Uso_cabeceraDAO {
         return (List<Uso_cabecera>) q.getResultList();
     }
 
-    public void actualizar(Uso_cabecera entidad){
+    public void actualizar(int id, Uso_cabecera entidad) {
+        Uso_cabecera q = this.en.merge(entidad);
     }
-
-    public void borrar(Uso_cabecera entidad){
-        this.en.remove(entidad);
+    
+    public void eliminar(int id){
+        Uso_cabecera q = this.en.find(Uso_cabecera.class, id);
+        this.en.remove(q);
     }
 }
