@@ -15,8 +15,6 @@ import javax.persistence.JoinColumn;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import py.com.progweb.prueba.model.Cliente;
-
 @Entity
 @Table(name="bolsa")
 public class Bolsa {

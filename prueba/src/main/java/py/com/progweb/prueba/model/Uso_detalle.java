@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,11 +22,11 @@ public class Uso_detalle {
     @GeneratedValue(generator = "uso_detalleSec", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "uso_detalleSec",sequenceName = "uso_detalle_sec", allocationSize = 0)
     private Integer idUso_detalle;
-    @JoinColumn(name = "id_uso_cabecera",referencedColumnName = "id_uso_cabecera")
+    @JoinColumn(name = "id_cabecera",referencedColumnName = "id_cabecera")
     @ManyToOne(optional = false)
     private Uso_cabecera uso_cabecera;
     @JoinColumn(name = "id_bolsa",referencedColumnName = "id_bolsa")
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     private Bolsa bolsa;
     @Column(name = "fecha")
     @Basic(optional = false)
