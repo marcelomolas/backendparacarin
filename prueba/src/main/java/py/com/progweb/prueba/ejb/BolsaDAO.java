@@ -24,6 +24,18 @@ public class BolsaDAO {
         return (List<Bolsa>) b.getResultList();
     }
 
+    @SuppressWarnings("unchecked") 
+    public List<Bolsa> lista_cliente(String cliente){
+        Query b = this.en.createQuery("select p from Bolsa p where p.cliente=" + cliente + "");
+        return (List<Bolsa>) b.getResultList();
+    }
+
+    @SuppressWarnings("unchecked") 
+    public List<Bolsa> lista_rango(String lim_inf, String lim_sup){
+        Query b = this.en.createQuery("select p from Bolsa p where p.saldo>=" + lim_inf + " AND p.saldo<=" + lim_sup + "");
+        return (List<Bolsa>) b.getResultList();
+    }
+
     public void actualizar(int id, Bolsa entidad) {
         Bolsa b = this.en.merge(entidad);
     }

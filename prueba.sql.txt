@@ -66,10 +66,14 @@ CREATE TABLE public.uso_cabecera
     id_cliente integer NOT NULL,
     pts_utilizados integer NOT NULL,
     fecha date NOT NULL,
-    descripcion character varying(200) NOT NULL,
+    descripcion integer NOT NULL,
     CONSTRAINT cabecera_pkey PRIMARY KEY (id_cabecera),
     CONSTRAINT fk_1 FOREIGN KEY (id_cliente)
         REFERENCES public.cliente (id_cliente) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+    CONSTRAINT fk_2 FOREIGN KEY (descripcion)
+        REFERENCES public.vale (id_vale) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 );

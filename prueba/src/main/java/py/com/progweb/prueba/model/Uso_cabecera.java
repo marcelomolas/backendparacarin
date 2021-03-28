@@ -9,32 +9,34 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="uso_cabecera")    
 public class Uso_cabecera{
-    @Id 
-    @Column(name = "id_uso_cabecera")
+    @Id
+    @Column(name = "id_cabecera")
     @Basic(optional = false)
     @GeneratedValue(generator = "uso_cabeceraSec", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "uso_cabeceraSec",sequenceName = "uso_cabecera_sec", allocationSize = 0)
     private Integer idUso_cabecera;
     @JoinColumn(name = "id_cliente",referencedColumnName = "id_cliente")
-    @OneToOne(optional = false)
-    private Cliente cliente;
+    @ManyToOne(optional = false)
+    private Cliente id_cliente;
     @Column(name = "pts_utilizados")
     @Basic(optional = false)
     private Integer pts_utilizados;
     @Column(name = "fecha")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Basic(optional = false)
     private Date fecha;
-    @Column(name = "descripcion", length = 200)
-    @Basic(optional = false)
-    private String descripcion;
-
+    @JoinColumn(name = "descripcion",referencedColumnName = "id_vale")
+    @ManyToOne(optional = false)
+    private Vale descripcion;
 
     public Integer getidUso_cabecera(){
         return idUso_cabecera;
@@ -45,11 +47,11 @@ public class Uso_cabecera{
     }
 
     public Cliente getCliente(){
-        return cliente;
+        return id_cliente;
     }
 
-    public void setCliente(Cliente cliente){
-        this.cliente = cliente;
+    public void setCliente(Cliente id_cliente){
+        this.id_cliente = id_cliente;
     }
 
     public Integer getPts_utilizados() {
@@ -68,11 +70,11 @@ public class Uso_cabecera{
         this.fecha = fecha;
     }
 
-    public String getDescripcion() {
+    public Vale getVale() {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
+    public void setVale(Vale descripcion) {
         this.descripcion = descripcion;
     }
 
