@@ -9,7 +9,9 @@ import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 
 import javax.ws.rs.POST;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
@@ -41,15 +43,14 @@ public class ServiciosRest {
     @Path("/carga_de_puntos/{idCliente}&{monto}")
     public Response cargaDePuntos(@PathParam("idCliente") int idCliente,@PathParam("monto") int monto){ 
         List<Rango> rangos = rangodao.lista();
-        Bolsa bolsa = new Bolsa();
         for (Rango rango : rangos){
             if(rango.getLim_inf() <= monto && monto <= rango.getLim_sup() ){
                 int puntos = monto / rango.getConversion();
-                bolsa = llenarBolsa(idCliente,puntos,monto);
+                llenarBolsa(idCliente,puntos,monto);
                 break;
             }
         }
-        return Response.ok(bolsa).build(); 
+        return Response.ok().build(); 
     }
     
     @POST
@@ -59,7 +60,7 @@ public class ServiciosRest {
         return Response.ok().build(); 
     }
     
-    @POST
+    @GET
     @Path("/consultar_puntos/{monto}")
     public Response consultarPuntos(@PathParam("monto") int monto){ 
         int puntos = 0;
@@ -84,7 +85,7 @@ public class ServiciosRest {
         return result;
     }
 
-    private bolsa llenarBolsa(int idCliente,int puntos, int monto) {
+    private void llenarBolsa(int idCliente,int puntos, int monto) {
         Cliente cliente = getCliente(idCliente);
         Bolsa bolsa = new Bolsa();
         bolsa.setCliente(cliente);
@@ -94,8 +95,7 @@ public class ServiciosRest {
         bolsa.setptsUtilizados(0);
         bolsa.setfechaAsig(Date.from(Instant.now()));
         bolsa.setfechaCaduc(Date.from(Instant.now().plus( 7, ChronoUnit.DAYS)));
-        new BolsaDAO().agregar(bolsa);
-        return bolsa;
+        this.bolsadao.agregar(bolsa);
     }
 
 }
