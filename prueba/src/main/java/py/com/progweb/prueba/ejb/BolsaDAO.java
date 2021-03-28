@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.ejb.Timer;
+import javax.ejb.Schedule;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -43,7 +45,7 @@ public class BolsaDAO {
         Calendar fecha_actual = Calendar.getInstance();
         fecha_actual.add(Calendar.DAY_OF_MONTH, Integer.parseInt(dias));
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Query b = this.en.createQuery("select p.cliente from Bolsa p where p.fechaCaduc<='" + format.format(fecha_actual) + "'");
+        Query b = this.en.createQuery("select p.cliente from Bolsa p where p.fechaCaduc<='" + format.format(fecha_actual.getTime()) + "'");
         return (List<Bolsa>) b.getResultList();
     }
 
@@ -54,5 +56,18 @@ public class BolsaDAO {
     public void eliminar(int id){
         Bolsa b = this.en.find(Bolsa.class, id);
         this.en.remove(b);
+    }
+
+    @SuppressWarnings("unchecked") 
+    @Schedule(hour = "*")
+    public void verificarBolsa(final Timer timer){
+        Calendar fecha_actual = Calendar.getInstance();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Query q = en.createQuery("select p from Bolsa p where p.fechaCaduc<='" + format.format(fecha_actual.getTime()) + "'");
+        List<Bolsa> lista = q.getResultList();
+        for(Bolsa bolsa: lista){
+            bolsa.setptsSaldo(0);
+            en.persist(bolsa);
+        }
     }
 }
