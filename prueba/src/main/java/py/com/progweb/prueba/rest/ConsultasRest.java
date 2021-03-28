@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
@@ -31,34 +32,34 @@ public class ConsultasRest {
     private BolsaDAO bolsaDAO;
 
     @GET
-    @Path("/uso_concepto")
-    public Response listar_uso_concepto(){
-        return Response.ok(uso_cabeceraDAO.lista()).build();
+    @Path("/usoconcepto/{concepto}")
+    public Response listar_uso_concepto(@PathParam("concepto") String concepto){
+        return Response.ok(uso_cabeceraDAO.lista_concepto(concepto)).build();
     }
 
     @GET
-    @Path("/uso_fecha")
-    public Response listar_uso_fecha(){
-        return Response.ok(uso_cabeceraDAO.lista()).build();
+    @Path("/usofecha/{fecha}")
+    public Response listar_uso_fecha(@PathParam("fecha") String fecha){
+        return Response.ok(uso_cabeceraDAO.lista_fecha(fecha)).build();
     }
 
     @GET
-    @Path("/uso_cliente")
-    public Response listar_uso_cliente(){
-        return Response.ok(uso_cabeceraDAO.lista()).build();
-    }
-
-    /*@GET
-    @Path("/bolsa_cliente")
-    public Response listar_bolsa_cliente(){
-        return Response.ok(bolsaDAO.lista()).build();
+    @Path("/usocliente/{idCliente}")
+    public Response listar_uso_cliente(@PathParam("idCliente") String cliente){
+        return Response.ok(uso_cabeceraDAO.lista_cliente(cliente)).build();
     }
 
     @GET
-    @Path("/bolsa_rango")
-    public Response listar_bolsa_rango(){
-        return Response.ok(bolsaDAO.lista()).build();
-    }*/
+    @Path("/bolsacliente/{idCliente}")
+    public Response listar_bolsa_cliente(@PathParam("idCliente") String cliente){
+        return Response.ok(bolsaDAO.lista_cliente(cliente)).build();
+    }
+
+    @GET
+    @Path("/bolsarango/{lim_inf}&{lim_sup}")
+    public Response listar_bolsa_rango(@PathParam("lim_inf") String lim_inf, @PathParam("lim_sup") String lim_sup){
+        return Response.ok(bolsaDAO.lista_rango(lim_inf, lim_sup)).build();
+    }
 
     @GET
     @Path("/avencer")

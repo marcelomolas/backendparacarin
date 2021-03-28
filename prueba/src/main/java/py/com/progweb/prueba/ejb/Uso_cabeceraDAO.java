@@ -24,6 +24,24 @@ public class Uso_cabeceraDAO {
         return (List<Uso_cabecera>) q.getResultList();
     }
 
+    @SuppressWarnings("unchecked") 
+    public List<Uso_cabecera> lista_concepto(String concepto){
+        Query q = this.en.createQuery("select p from Uso_cabecera p where p.descripcion=" + concepto + "");
+        return (List<Uso_cabecera>) q.getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Uso_cabecera> lista_fecha(String fecha){
+        Query q = this.en.createQuery("select p from Uso_cabecera p where p.fecha='" + fecha + "'");
+        return (List<Uso_cabecera>) q.getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Uso_cabecera> lista_cliente(String cliente){
+        Query q = this.en.createQuery("select p from Uso_cabecera p where p.id_cliente=" + cliente + "");
+        return (List<Uso_cabecera>) q.getResultList();
+    }
+
     public void actualizar(int id, Uso_cabecera entidad) {
         Uso_cabecera q = this.en.merge(entidad);
     }
