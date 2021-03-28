@@ -32,14 +32,19 @@ import py.com.progweb.prueba.model.UtilizarPuntosMsg;
 @Produces("application/json")
 public class ServiciosRest {
 
+    @Inject
+    private RangoDAO rangodao;
+
+    @Inject
+    private ClienteDAO clientedao;
+
+    @Inject
+    private BolsaDAO bolsadao;
 
     @POST
     @Path("/cargaDePuntos")
-    public Response cargaDePuntos(CargaPuntosMsg msg){ 
-        int idCliente = msg.getidCliente();
-        int monto = msg.getmonto();
-        
-        List<Rango> rangos = new RangoDAO().lista();
+    public Response cargaDePuntos(int idCliente, int monto){ 
+        List<Rango> rangos = rangodao.lista();
         for (Rango rango : rangos){
             if(rango.getLim_inf() <= monto && monto <= rango.getLim_sup() ){
                 int puntos = monto / rango.getConversion();
@@ -52,20 +57,16 @@ public class ServiciosRest {
     
     @POST
     @Path("/usoDePuntos")
-    public Response utilizarPuntos(UtilizarPuntosMsg msg){ 
-        int idCliente = msg.getidCliente();
-        int idUso_detalle = msg.getidUso_detalle();
-        
+    public Response utilizarPuntos(int idCliente, int idUso_detalle){
         
         return Response.ok().build(); 
     }
     
     @POST
     @Path("/consultarPuntos")
-    public Response consultarPuntos(ConsultaPuntosMsg msg){ 
-        int monto = msg.getmonto();
+    public Response consultarPuntos(int monto){ 
         int puntos = 0;
-        List<Rango> rangos = new RangoDAO().lista();
+        List<Rango> rangos = rangodao.lista();
         for (Rango rango : rangos){
             if(rango.getLim_inf() <= monto && monto <= rango.getLim_sup() ){
                 puntos = monto / rango.getConversion();
@@ -77,16 +78,16 @@ public class ServiciosRest {
         return Response.ok(message).build(); 
     }
 
-    private static Cliente getCliente(int idCliente) {
+    private Cliente getCliente(int idCliente) {
     	Cliente result = new Cliente();
-        List<Cliente> clientes = new ClienteDAO().lista();
+        List<Cliente> clientes = clientedao.lista();
         for(Cliente cliente : clientes)
             if(cliente.getidCliente() == idCliente)
                 result = cliente;
         return result;
     }
 
-    private static void llenarBolsa(int idCliente,int puntos, int monto) {
+    private void llenarBolsa(int idCliente,int puntos, int monto) {
         Cliente cliente = getCliente(idCliente);
         Bolsa bolsa = new Bolsa();
         bolsa.setCliente(cliente);
