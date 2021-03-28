@@ -97,7 +97,7 @@ public class Bolsa {
     }
     
     public Integer getptsSaldo(){
-        return this.ptsUtilizados;
+        return this.ptsSaldo;
     }
 
     public void setptsSaldo(int ptsSaldo){
