@@ -62,26 +62,26 @@ public class ConsultasRest {
     }
 
     @GET
-    @Path("/avencer")
-    public Response lista_cliente_pts(Integer dias){
-        return Response.ok(clienteDAO.lista()).build();
+    @Path("/avencer/{dias}")
+    public Response listar_vencimiento(@PathParam("dias") String dias){
+        return Response.ok(bolsaDAO.lista_vencimiento(dias)).build();
     }
 
     @GET
-    @Path("/cliente_nombre")
-    public Response lista_cliente_nombre(String nombre){
-        return Response.ok(clienteDAO.lista()).build();
+    @Path("/clientenombre/{nombre}")
+    public Response listar_cliente_nombre(@PathParam("nombre") String nombre){
+        return Response.ok(clienteDAO.lista_nombre(nombre)).build();
     }
 
     @GET
-    @Path("/cliente_apellido")
-    public Response lista_cliente_apellido(String apellido){
-        return Response.ok(clienteDAO.lista()).build();
+    @Path("/clienteapellido/{apellido}")
+    public Response listar_cliente_apellido(@PathParam("apellido") String apellido){
+        return Response.ok(clienteDAO.lista_apellido(apellido)).build();
     }
 
     @GET
-    @Path("/cliente_cumple")
-    public Response lista_cliente_cumple(Date cumple){
-        return Response.ok(clienteDAO.lista()).build();
+    @Path("/clientenac/{fecha}")
+    public Response listar_cliente_nacimiento(@PathParam("fecha") String fecha){
+        return Response.ok(clienteDAO.lista_nacimiento(fecha)).build();
     }
 }
