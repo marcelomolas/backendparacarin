@@ -38,29 +38,30 @@ public class ServiciosRest {
     private BolsaDAO bolsadao;
 
     @POST
-    @Path("/cargaDePuntos")
-    public Response cargaDePuntos(int idCliente, int monto){ 
+    @Path("/carga_de_puntos/{idCliente}&{monto}")
+    public Response cargaDePuntos(@PathParam("idCliente") int idCliente,@PathParam("monto") int monto){ 
         List<Rango> rangos = rangodao.lista();
+        Bolsa bolsa = new Bolsa();
         for (Rango rango : rangos){
             if(rango.getLim_inf() <= monto && monto <= rango.getLim_sup() ){
                 int puntos = monto / rango.getConversion();
-                llenarBolsa(idCliente,puntos,monto);
+                bolsa = llenarBolsa(idCliente,puntos,monto);
                 break;
             }
         }
-        return Response.ok().build(); 
+        return Response.ok(bolsa).build(); 
     }
     
     @POST
-    @Path("/usoDePuntos")
-    public Response utilizarPuntos(int idCliente, int idUso_detalle){
+    @Path("/uso_de_puntos/{idCliente}&{idUso_detalle}")
+    public Response utilizarPuntos(@PathParam("idCliente") int idCliente, @PathParam("idUso_detalle") int idUso_detalle){
         
         return Response.ok().build(); 
     }
     
     @POST
-    @Path("/consultarPuntos")
-    public Response consultarPuntos(int monto){ 
+    @Path("/consultar_puntos/{monto}")
+    public Response consultarPuntos(@PathParam("monto") int monto){ 
         int puntos = 0;
         List<Rango> rangos = rangodao.lista();
         for (Rango rango : rangos){
@@ -83,7 +84,7 @@ public class ServiciosRest {
         return result;
     }
 
-    private void llenarBolsa(int idCliente,int puntos, int monto) {
+    private bolsa llenarBolsa(int idCliente,int puntos, int monto) {
         Cliente cliente = getCliente(idCliente);
         Bolsa bolsa = new Bolsa();
         bolsa.setCliente(cliente);
@@ -94,6 +95,7 @@ public class ServiciosRest {
         bolsa.setfechaAsig(Date.from(Instant.now()));
         bolsa.setfechaCaduc(Date.from(Instant.now().plus( 7, ChronoUnit.DAYS)));
         new BolsaDAO().agregar(bolsa);
+        return bolsa;
     }
 
 }
