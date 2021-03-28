@@ -23,7 +23,9 @@ import py.com.progweb.prueba.ejb.RangoDAO;
 import py.com.progweb.prueba.model.Bolsa;
 import py.com.progweb.prueba.model.CargaPuntosMsg;
 import py.com.progweb.prueba.model.Cliente;
+import py.com.progweb.prueba.model.ConsultaPuntosMsg;
 import py.com.progweb.prueba.model.Rango;
+import py.com.progweb.prueba.model.UtilizarPuntosMsg;
 
 @Path("servicios")
 @Consumes("application/json")
@@ -46,6 +48,33 @@ public class ServiciosRest {
             }
         }
         return Response.ok().build(); 
+    }
+    
+    @POST
+    @Path("/usoDePuntos")
+    public Response utilizarPuntos(UtilizarPuntosMsg msg){ 
+        int idCliente = msg.getidCliente();
+        int idUso_detalle = msg.getidUso_detalle();
+        
+        
+        return Response.ok().build(); 
+    }
+    
+    @POST
+    @Path("/consultarPuntos")
+    public Response consultarPuntos(ConsultaPuntosMsg msg){ 
+        int monto = msg.getmonto();
+        int puntos = 0;
+        List<Rango> rangos = new RangoDAO().lista();
+        for (Rango rango : rangos){
+            if(rango.getLim_inf() <= monto && monto <= rango.getLim_sup() ){
+                puntos = monto / rango.getConversion();
+                break;
+            }
+        }
+        String message = "{\"puntos\": \"" + puntos +"\"}";
+
+        return Response.ok(message).build(); 
     }
 
     private static Cliente getCliente(int idCliente) {
