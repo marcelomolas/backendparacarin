@@ -69,6 +69,17 @@ function Vencimientos(){
     }, []);
     const classes = useStyles();
 
+    const [isValid, setIsValid] = useState(true)
+    useEffect(() => {
+            axios.get("http://localhost:8080/prueba/vencimiento")
+                            .then(response => response.data).then(data => {
+                console.log(data);
+                setDatos(data);
+                return <Vencimientos vencimientos = {data} />
+                }).catch(console.log);
+            setIsValid(true);
+    }, [isValid]);
+
     const onSubmit1 = async (vencimiento) => {
         await axios.post('http://localhost:8080/prueba/vencimiento', vencimiento)
         .then(response => console.log(response)).catch(console.log);
@@ -115,7 +126,7 @@ function Vencimientos(){
                         </Button>
                         </div> 
                         <div>
-                        <Button variant="contained" color="secondary" onClick = {() => onDelete(vencimiento)}>
+                        <Button variant="contained" color="secondary" onClick = {() => { onDelete(vencimiento);setIsValid(false)}}>
                             BORRAR
                         </Button>
                         </div>
@@ -178,7 +189,7 @@ function Vencimientos(){
             <Button onClick={handleClose1} color="primary">
             Cancelar
             </Button>
-            <Button onClick={() => {onSubmit1(vencimiento)}} color="primary">
+            <Button onClick={() => {onSubmit1(vencimiento);setIsValid(false)}} color="primary">
             Aceptar
             </Button>
             </DialogActions>
@@ -232,7 +243,7 @@ function Vencimientos(){
             <Button onClick={handleClose2} color="primary">
             Cancelar
             </Button>
-            <Button onClick={() => {onSubmit2(vencimiento)}} color="primary">
+            <Button onClick={() => {onSubmit2(vencimiento);setIsValid(false)}} color="primary">
             Aceptar
             </Button>
             </DialogActions>

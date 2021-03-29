@@ -79,6 +79,17 @@ function Clientes(){
     }, []);
     const classes = useStyles();
 
+    const [isValid, setIsValid] = useState(true)
+        useEffect( async () => {
+            await axios.get('http://localhost:8080/prueba/cliente')
+                            .then(response => response.data).then(data => {
+                console.log(data);
+                setDatos(data)
+                return <Clientes clientes = {data} />
+                }).catch(console.log);
+            setIsValid(true);
+    }, [isValid]);
+
     const onSubmit1 = async (cliente) => {
         await axios.post('http://localhost:8080/prueba/cliente', cliente)
         .then(response => console.log(response)).catch(console.log);
@@ -135,7 +146,7 @@ function Clientes(){
                         </Button>
                         </div> 
                         <div>
-                        <Button variant="contained" color="secondary" onClick = {() => onDelete(cliente)}>
+                        <Button variant="contained" color="secondary" onClick = {() => {onDelete(cliente);setIsValid(false)}}>
                             BORRAR
                         </Button>
                         </div>
@@ -257,7 +268,7 @@ function Clientes(){
             <Button onClick={handleClose1} color="primary">
             Cancelar
             </Button>
-            <Button onClick={() => {onSubmit1(cliente)}} color="primary">
+            <Button onClick={() => {onSubmit1(cliente);setIsValid(false)}} color="primary">
             Aceptar
             </Button>
             </DialogActions>
@@ -370,7 +381,7 @@ function Clientes(){
             <Button onClick={handleClose2} color="primary">
             Cancelar
             </Button>
-            <Button onClick={() => {onSubmit2(cliente)}} color="primary">
+            <Button onClick={() => {onSubmit2(cliente);setIsValid(false)}} color="primary">
             Aceptar
             </Button>
             </DialogActions>

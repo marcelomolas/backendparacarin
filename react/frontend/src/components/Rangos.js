@@ -86,6 +86,17 @@ function Rangos(){
         .then(response => console.log(response)).catch(console.log);
     }
 
+    const [isValid, setIsValid] = useState(true)
+    useEffect( async () => {
+            await axios.get("http://localhost:8080/prueba/rango")
+                            .then(response => response.data).then(data => {
+                console.log(data);
+                setDatos(data);
+                return <Rangos rangos = {data} />
+                }).catch(console.log);
+            setIsValid(true);
+    }, [isValid]);
+
     return(
         <div>
         <h1>Rangos</h1>
@@ -115,7 +126,7 @@ function Rangos(){
                         </Button>
                         </div> 
                         <div>
-                        <Button variant="contained" color="secondary" onClick = {() => onDelete(rango)}>
+                        <Button variant="contained" color="secondary" onClick = {() => { onDelete(rango);setIsValid(false)}}>
                             BORRAR
                         </Button>
                         </div>
@@ -178,7 +189,7 @@ function Rangos(){
             <Button onClick={handleClose1} color="primary">
             Cancelar
             </Button>
-            <Button onClick={() => {onSubmit1(rango)}} color="primary">
+            <Button onClick={() => {onSubmit1(rango);setIsValid(false)}} color="primary">
             Aceptar
             </Button>
             </DialogActions>
@@ -206,7 +217,7 @@ function Rangos(){
             autoFocus
             margin="dense"
             id="lim_sup"
-            label="Limite Inferior"
+            label="Limite Superior"
             type="number"
             fullWidth
             InputLabelProps={{ shrink: true }}
@@ -232,7 +243,7 @@ function Rangos(){
             <Button onClick={handleClose2} color="primary">
             Cancelar
             </Button>
-            <Button onClick={() => {onSubmit2(rango)}} color="primary">
+            <Button onClick={() => {onSubmit2(rango);setIsValid(false)}} color="primary">
             Aceptar
             </Button>
             </DialogActions>

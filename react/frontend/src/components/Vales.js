@@ -67,6 +67,17 @@ function Vales(){
     }, []);
     const classes = useStyles();
 
+    const [isValid, setIsValid] = useState(true)
+    useEffect( async () => {
+            await axios.get("http://localhost:8080/prueba/vale")
+                            .then(response => response.data).then(data => {
+                console.log(data);
+                setDatos(data);
+                return <Vales vales = {data} />
+                }).catch(console.log);
+            setIsValid(true);
+    }, [isValid]);
+
     const onSubmit1 = async (vale) => {
         await axios.post('http://localhost:8080/prueba/vale', vale)
         .then(response => console.log(response)).catch(console.log);
@@ -111,6 +122,9 @@ function Vales(){
                         </Button>
                         </div> 
                         <div>
+                        <Button variant="contained" color="secondary" onClick = {() => {onDelete(vale);setIsValid(false)}}>
+                            BORRAR
+                        </Button>
                         </div>
                     </TableCell>
                     </TableRow>
@@ -157,7 +171,7 @@ function Vales(){
             <Button onClick={handleClose1} color="primary">
             Cancelar
             </Button>
-            <Button onClick={() => {onSubmit1(vale)}} color="primary">
+            <Button onClick={() => {onSubmit1(vale);setIsValid(false)}} color="primary">
             Aceptar
             </Button>
             </DialogActions>
@@ -197,7 +211,7 @@ function Vales(){
             <Button onClick={handleClose2} color="primary">
             Cancelar
             </Button>
-            <Button onClick={() => {onSubmit2(vale)}} color="primary">
+            <Button onClick={() => {onSubmit2(vale);setIsValid(false)}} color="primary">
             Aceptar
             </Button>
             </DialogActions>
