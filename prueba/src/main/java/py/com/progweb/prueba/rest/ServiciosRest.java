@@ -69,9 +69,9 @@ public class ServiciosRest {
     }
     
     @POST
-    @Path("/uso_de_puntos/{idCliente}&{idUso_detalle}")
-    public Response utilizarPuntos(@PathParam("idCliente") String idCliente, @PathParam("idUso_detalle") int idUso_detalle){
-        Vale vale = valedao.obtener_vale(idUso_detalle);
+    @Path("/uso_de_puntos/{idCliente}&{id_vale}")
+    public Response utilizarPuntos(@PathParam("idCliente") String idCliente, @PathParam("id_vale") int id_vale){
+        Vale vale = valedao.obtener_vale(id_vale);
         int puntosVale = vale.getptsRequeridos();
         Cliente cliente = clientedao.obtener_cliente(idCliente);
         List<Bolsa> bolsas = bolsadao.lista_cliente(idCliente);

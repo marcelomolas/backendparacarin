@@ -5,6 +5,8 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.ejb.Timer;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.ejb.Schedule;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -18,6 +20,7 @@ public class BolsaDAO {
     @PersistenceContext(unitName = "pruebaPU")
     private EntityManager en;
 
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void agregar(Bolsa entidad){
         this.en.persist(entidad);
     }

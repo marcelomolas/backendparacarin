@@ -3,10 +3,12 @@ package py.com.progweb.prueba.ejb;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import py.com.progweb.prueba.model.Bolsa;
 import py.com.progweb.prueba.model.Cliente;
 
 @Stateless
@@ -14,8 +16,13 @@ public class ClienteDAO {
     @PersistenceContext(unitName = "pruebaPU")
     private EntityManager en;
 
+    @Inject
+    private BolsaDAO bolsadao;
+
     public void agregar(Cliente entidad){
         this.en.persist(entidad);
+        for(Bolsa bolsa : entidad.getListaBolsas())
+            bolsadao.agregar(bolsa);
     }
 
     @SuppressWarnings("unchecked") 
