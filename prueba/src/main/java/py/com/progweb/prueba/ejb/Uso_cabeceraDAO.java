@@ -43,7 +43,7 @@ public class Uso_cabeceraDAO {
     }
 
     public void actualizar(int id, Uso_cabecera entidad) {
-        Uso_cabecera q = this.en.merge(entidad);
+        this.en.merge(entidad);
     }
     
     public void eliminar(int id){

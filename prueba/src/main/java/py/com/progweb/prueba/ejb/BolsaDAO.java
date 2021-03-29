@@ -33,7 +33,7 @@ public class BolsaDAO {
 
     @SuppressWarnings("unchecked") 
     public List<Bolsa> lista_cliente(String cliente){
-        Query b = this.en.createQuery("select p from Bolsa p where p.cliente=" + cliente + "");
+        Query b = this.en.createQuery("select p from Bolsa p where p.cliente=" + cliente + " ORDER BY p.fechaAsig ASC");
         return (List<Bolsa>) b.getResultList();
     }
 
@@ -53,7 +53,7 @@ public class BolsaDAO {
     }
 
     public void actualizar(int id, Bolsa entidad) {
-        Bolsa b = this.en.merge(entidad);
+        this.en.merge(entidad);
     }
 
     public void eliminar(int id){

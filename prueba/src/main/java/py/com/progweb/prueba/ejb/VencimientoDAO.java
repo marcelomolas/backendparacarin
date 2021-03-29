@@ -25,7 +25,7 @@ public class VencimientoDAO {
     }
 
     public void actualizar(int id, Vencimiento entidad){
-        Vencimiento v = this.en.merge(entidad);
+        this.en.merge(entidad);
     }
 
     public void eliminar(int id){

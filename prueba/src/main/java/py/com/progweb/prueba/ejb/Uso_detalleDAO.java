@@ -25,7 +25,7 @@ public class Uso_detalleDAO {
     }
 
     public void actualizar(int id, Uso_detalle entidad) {
-        Uso_detalle q = this.en.merge(entidad);
+        this.en.merge(entidad);
     }
     
     public void eliminar(int id){

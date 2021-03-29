@@ -1,7 +1,5 @@
 package py.com.progweb.prueba.rest;
 
-import java.util.Date;
-
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -12,7 +10,6 @@ import javax.ws.rs.core.Response;
 
 import py.com.progweb.prueba.ejb.ClienteDAO;
 import py.com.progweb.prueba.ejb.Uso_cabeceraDAO;
-import py.com.progweb.prueba.ejb.Uso_detalleDAO;
 import py.com.progweb.prueba.ejb.BolsaDAO;
 
 @Path("consultas")
@@ -24,9 +21,6 @@ public class ConsultasRest {
 
     @Inject
     private Uso_cabeceraDAO uso_cabeceraDAO;
-
-    @Inject
-    private Uso_detalleDAO uso_detalleDAO;
 
     @Inject
     private BolsaDAO bolsaDAO;

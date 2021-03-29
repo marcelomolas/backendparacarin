@@ -25,7 +25,7 @@ public class ValeDAO {
     }
 
     public void actualizar(int id, Vale entidad){
-        Vale v = this.en.merge(entidad);
+        this.en.merge(entidad);
     }
 
     public void eliminar(int id){
