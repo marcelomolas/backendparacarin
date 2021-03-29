@@ -35,6 +35,6 @@ public class ValeDAO {
 
     public Vale obtener_vale(int id){
         Vale v = this.en.find(Vale.class, id);
-        return vale;
+        return v;
     }
 }
