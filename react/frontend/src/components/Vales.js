@@ -86,6 +86,7 @@ function Vales(){
 
     return(
         <div>
+        <h1>Vales</h1>
         <Box display='flex'>
             <TableContainer component={Card}>
             <Table className={classes.table} aria-label="simple table">
@@ -110,9 +111,6 @@ function Vales(){
                         </Button>
                         </div> 
                         <div>
-                        <Button variant="contained" color="secondary" onClick = {() => onDelete(vale)}>
-                            BORRAR
-                        </Button>
                         </div>
                     </TableCell>
                     </TableRow>

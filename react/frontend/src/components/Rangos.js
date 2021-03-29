@@ -88,6 +88,7 @@ function Rangos(){
 
     return(
         <div>
+        <h1>Rangos</h1>
         <Box display='flex'>
             <TableContainer component={Card}>
             <Table className={classes.table} aria-label="simple table">
@@ -138,7 +139,7 @@ function Rangos(){
             autoFocus
             margin="dense"
             id="lim_inf"
-            label="Limite Superior"
+            label="Limite Inferior"
             type="number"
             fullWidth
             InputLabelProps={{ shrink: true }}
@@ -205,7 +206,7 @@ function Rangos(){
             autoFocus
             margin="dense"
             id="lim_sup"
-            label="Limite Superior"
+            label="Limite Inferior"
             type="number"
             fullWidth
             InputLabelProps={{ shrink: true }}
