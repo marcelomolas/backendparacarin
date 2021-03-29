@@ -47,6 +47,16 @@ function Clientes(){
     const [open1, setOpen1] = React.useState(false);
     const [open2, setOpen2] = React.useState(false);
     const handleClickOpen1 = () => {
+    setCliente({
+      nombre: "",
+      apellido: "",
+      email: "",
+      telefono: "",
+      nro_documento: 0,
+      tipo_documento: "",
+      nacionalidad: "",
+      fecha_nac: "",
+    });
     setOpen1(true);
     };
     const handleClose1 = () => {
@@ -76,13 +86,13 @@ function Clientes(){
     }
 
     const onSubmit2 = async (cliente) => {
-        await axios.put('http://localhost:8080/prueba/cliente/' + String(cliente.id), cliente)
+        await axios.put('http://localhost:8080/prueba/cliente/' + String(cliente.idCliente), cliente)
         .then(response => console.log(response)).catch(console.log);
         handleClose2();
     }
 
     const onDelete = async (cliente) => {
-        await axios.delete('http://localhost:8080/prueba/cliente/'+cliente.id)
+        await axios.delete('http://localhost:8080/prueba/cliente/'+ String(cliente.idCliente))
         .then(response => console.log(response)).catch(console.log);
     }
 
@@ -124,7 +134,7 @@ function Clientes(){
                         </Button>
                         </div> 
                         <div>
-                        <Button variant="contained" color="secondary" onClick = {onDelete}>
+                        <Button variant="contained" color="secondary" onClick = {() => onDelete(cliente)}>
                             BORRAR
                         </Button>
                         </div>
