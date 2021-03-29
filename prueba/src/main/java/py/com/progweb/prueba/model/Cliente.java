@@ -1,6 +1,7 @@
 package py.com.progweb.prueba.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -8,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -47,6 +50,9 @@ public class Cliente {
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Basic(optional = false)
     private Date fecha_nac;
+    @OneToMany(mappedBy = "cliente")
+    private List<Bolsa> listaBolsas;
+
 
     public Integer getidCliente(){
         return idCliente;
@@ -121,5 +127,21 @@ public class Cliente {
     }    
     
     public Cliente() {
+    }
+
+    public Integer getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public List<Bolsa> getListaBolsas() {
+        return listaBolsas;
+    }
+
+    public void setListaBolsas(List<Bolsa> listaBolsas) {
+        this.listaBolsas = listaBolsas;
     }
 }
