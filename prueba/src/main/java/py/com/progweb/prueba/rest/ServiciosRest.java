@@ -27,10 +27,14 @@ import javax.ws.rs.core.Response;
 import py.com.progweb.prueba.ejb.BolsaDAO;
 import py.com.progweb.prueba.ejb.ClienteDAO;
 import py.com.progweb.prueba.ejb.RangoDAO;
+import py.com.progweb.prueba.ejb.Uso_cabeceraDAO;
+import py.com.progweb.prueba.ejb.Uso_detalleDAO;
 import py.com.progweb.prueba.ejb.ValeDAO;
 import py.com.progweb.prueba.model.Bolsa;
 import py.com.progweb.prueba.model.Cliente;
 import py.com.progweb.prueba.model.Rango;
+import py.com.progweb.prueba.model.Uso_cabecera;
+import py.com.progweb.prueba.model.Uso_detalle;
 import py.com.progweb.prueba.model.Vale;
 
 
@@ -43,6 +47,12 @@ public class ServiciosRest {
 
     @Inject
     private RangoDAO rangodao;
+
+    @Inject
+    private Uso_cabeceraDAO uso_cabeceradao;
+
+    @Inject
+    private Uso_detalleDAO uso_detalle;
 
     @Inject
     private ClienteDAO clientedao;
@@ -78,6 +88,7 @@ public class ServiciosRest {
         int totalPuntosCliente = getTotalPuntosCliente(bolsas);
 
         if(totalPuntosCliente >= puntosVale){
+            Uso_cabecera cabecera = registrarCanjeCabecera(vale,cliente);
             for(Bolsa bolsa : bolsas){
                 int saldoBolsa = bolsa.getptsSaldo();
                 if(saldoBolsa > 0 ){
@@ -87,6 +98,7 @@ public class ServiciosRest {
                         bolsa.setptsSaldo(saldoBolsa - puntosVale);
                     }
                     bolsa.setptsUtilizados(bolsa.getptsUtilizados() + puntosVale);
+                    registrarCanjeDetalle(bolsa,cabecera,puntosVale);
                     bolsadao.agregar(bolsa);
                     puntosVale -= saldoBolsa;
                     
@@ -100,6 +112,29 @@ public class ServiciosRest {
         }
         //else no tiene los puntos requeridos mandar mensaje de error? uwu
         return Response.ok().build(); 
+    }
+
+    private Uso_cabecera registrarCanjeCabecera(Vale vale, Cliente cliente){
+        Uso_cabecera cabecera = new Uso_cabecera();
+        cabecera.setCliente(cliente);
+        cabecera.setPts_utilizados(vale.getptsRequeridos());
+        cabecera.setVale(vale);
+        cabecera.setFecha(Date.from(Instant.now()));
+        
+        uso_cabeceradao.agregar(cabecera);
+
+        return cabecera;
+        
+    }
+
+    private void registrarCanjeDetalle(Bolsa bolsa, Uso_cabecera cabecera,int ptsUsados){
+        Uso_detalle detalle = new Uso_detalle();
+        detalle.setBolsa(bolsa);
+        detalle.setFecha(Date.from(Instant.now()));
+        detalle.setUso_cabecera(cabecera);
+        detalle.setPts_utilizados(ptsUsados);
+        
+        uso_detalle.agregar(detalle);
     }
 
     private void enviarCorreo(Cliente cliente, String mensaje){
