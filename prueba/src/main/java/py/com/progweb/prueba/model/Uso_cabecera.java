@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -22,7 +24,7 @@ public class Uso_cabecera{
     @Column(name = "id_cabecera")
     @Basic(optional = false)
     @GeneratedValue(generator = "uso_cabeceraSec", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "uso_cabeceraSec",sequenceName = "uso_cabecera_sec", allocationSize = 0)
+    @SequenceGenerator(name = "uso_cabeceraSec",sequenceName = "cabecera_sec", allocationSize = 0)
     private Integer idUso_cabecera;
     @JoinColumn(name = "id_cliente",referencedColumnName = "id_cliente")
     @ManyToOne(optional = false)
@@ -30,8 +32,9 @@ public class Uso_cabecera{
     @Column(name = "pts_utilizados")
     @Basic(optional = false)
     private Integer pts_utilizados;
+    @Temporal(TemporalType.DATE)
     @Column(name = "fecha")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "America/Asuncion")
     @Basic(optional = false)
     private Date fecha;
     @JoinColumn(name = "descripcion",referencedColumnName = "id_vale")

@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 
@@ -27,12 +29,14 @@ public class Bolsa {
     @JoinColumn(name = "id_cliente",referencedColumnName = "id_cliente")
     @ManyToOne(optional = false)
     private Cliente cliente;
+    @Temporal(TemporalType.DATE)
     @Column(name = "fecha_asig")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "America/Asuncion")
     @Basic(optional = false)
     private Date fechaAsig;
+    @Temporal(TemporalType.DATE)
     @Column(name = "fecha_caduc")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "America/Asuncion")
     @Basic(optional = false)
     private Date fechaCaduc;
     @Column(name = "pts_total")

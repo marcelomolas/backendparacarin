@@ -11,10 +11,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -49,14 +50,14 @@ public class Cliente {
     @Column(name = "telefono", length = 50)
     @Basic(optional = false)
     private String telefono;
+    @Temporal(TemporalType.DATE)
     @Column(name = "fecha_nac")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "America/Asuncion")
     @Basic(optional = false)
     private Date fecha_nac;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "cliente", cascade = CascadeType.ALL)
     @JsonBackReference()
     private List<Bolsa> listaBolsas;
-
 
     public Integer getidCliente(){
         return idCliente;

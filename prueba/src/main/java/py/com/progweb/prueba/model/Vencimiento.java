@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -23,12 +25,14 @@ public class Vencimiento{
     @GeneratedValue(generator = "vencimientoSec", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "vencimientoSec",sequenceName = "vencimiento_sec", allocationSize = 0)
     private Integer idVencimiento;
+    @Temporal(TemporalType.DATE)
     @Column(name = "fecha_inicio")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "America/Asuncion")
     @Basic(optional = false)
     private Date fechaInicio;
+    @Temporal(TemporalType.DATE)
     @Column(name = "fecha_fin")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "America/Asuncion")
     @Basic(optional = false)
     private Date fechaFin;
     @Column(name = "duracion")
