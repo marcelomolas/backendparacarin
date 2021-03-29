@@ -20,7 +20,19 @@ function Nav(){
                     <Link style={navStyle} to='/clientes'>Clientes</Link>
                 </Button>
                 <Button>
-                    <Link style={navStyle} to='/puntos'>Puntos</Link>
+                    <Link style={navStyle} to='/vales'>Vales</Link>
+                </Button>
+                <Button>
+                    <Link style={navStyle} to='/rangos'>Rangos</Link>
+                </Button>
+                <Button>
+                    <Link style={navStyle} to='/vencimientos'>Vencimientos</Link>
+                </Button>
+                <Button>
+                    <Link style={navStyle} to='/consultas'>Consultas</Link>
+                </Button>
+                <Button>
+                    <Link style={navStyle} to='/servicios'>Servicios</Link>
                 </Button>
                 </Toolbar>
             </AppBar>
