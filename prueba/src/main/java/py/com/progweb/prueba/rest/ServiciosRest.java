@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -30,13 +32,14 @@ import py.com.progweb.prueba.ejb.RangoDAO;
 import py.com.progweb.prueba.ejb.Uso_cabeceraDAO;
 import py.com.progweb.prueba.ejb.Uso_detalleDAO;
 import py.com.progweb.prueba.ejb.ValeDAO;
+import py.com.progweb.prueba.ejb.VencimientoDAO;
 import py.com.progweb.prueba.model.Bolsa;
 import py.com.progweb.prueba.model.Cliente;
 import py.com.progweb.prueba.model.Rango;
 import py.com.progweb.prueba.model.Uso_cabecera;
 import py.com.progweb.prueba.model.Uso_detalle;
 import py.com.progweb.prueba.model.Vale;
-
+import py.com.progweb.prueba.model.Vencimiento;
 
 
 
@@ -63,6 +66,8 @@ public class ServiciosRest {
     @Inject
     private ValeDAO valedao;
     
+    @Inject
+    private VencimientoDAO vencimientodao;
 
     @POST
     @Path("/carga_de_puntos/{idCliente}&{monto}")
@@ -94,12 +99,15 @@ public class ServiciosRest {
                 if(saldoBolsa > 0 ){
                     if(saldoBolsa - puntosVale <= 0 ){
                         bolsa.setptsSaldo(0);  
+                        bolsa.setptsUtilizados(bolsa.getptsUtilizados() + saldoBolsa);
+                        registrarCanjeDetalle(bolsa,cabecera,saldoBolsa);
                     }else{
                         bolsa.setptsSaldo(saldoBolsa - puntosVale);
+                        bolsa.setptsUtilizados(bolsa.getptsUtilizados() + puntosVale);
+                        registrarCanjeDetalle(bolsa,cabecera,puntosVale);
+ 
                     }
-                    bolsa.setptsUtilizados(bolsa.getptsUtilizados() + puntosVale);
-                    registrarCanjeDetalle(bolsa,cabecera,puntosVale);
-                    bolsadao.agregar(bolsa);
+                    bolsadao.actualizar(bolsa.getidBolsa(), bolsa);
                     puntosVale -= saldoBolsa;
                     
                     if(puntosVale <= 0 ){
@@ -114,6 +122,7 @@ public class ServiciosRest {
         return Response.ok().build(); 
     }
 
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     private Uso_cabecera registrarCanjeCabecera(Vale vale, Cliente cliente){
         Uso_cabecera cabecera = new Uso_cabecera();
         cabecera.setCliente(cliente);
@@ -127,10 +136,10 @@ public class ServiciosRest {
         
     }
 
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     private void registrarCanjeDetalle(Bolsa bolsa, Uso_cabecera cabecera,int ptsUsados){
         Uso_detalle detalle = new Uso_detalle();
         detalle.setBolsa(bolsa);
-        detalle.setFecha(Date.from(Instant.now()));
         detalle.setUso_cabecera(cabecera);
         detalle.setPts_utilizados(ptsUsados);
         
@@ -203,13 +212,19 @@ public class ServiciosRest {
     private void llenarBolsa(int idCliente,int puntos, int monto) {
         Cliente cliente = getCliente(idCliente);
         Bolsa bolsa = new Bolsa();
+        List<Vencimiento> vencimientos = vencimientodao.lista();
         bolsa.setCliente(cliente);
         bolsa.setmonto(monto);
         bolsa.setptsTotal(puntos);
         bolsa.setptsSaldo(puntos);
         bolsa.setptsUtilizados(0);
         bolsa.setfechaAsig(Date.from(Instant.now()));
-        bolsa.setfechaCaduc(Date.from(Instant.now().plus( 7, ChronoUnit.DAYS)));
+        for (Vencimiento vencimiento : vencimientos){
+            if(!vencimiento.getfechaInicio().after(Date.from(Instant.now())) && !vencimiento.getfechaFin().before(Date.from(Instant.now()))){
+                bolsa.setfechaCaduc(Date.from(Instant.now().plus(vencimiento.getduracion(), ChronoUnit.DAYS)));
+                break;
+            }
+        }
         this.bolsadao.agregar(bolsa);
     }
 
