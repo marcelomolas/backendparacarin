@@ -4,8 +4,16 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 import javax.inject.Inject;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.ws.rs.Consumes;
 
 import javax.ws.rs.POST;
@@ -15,17 +23,18 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+
 import py.com.progweb.prueba.ejb.BolsaDAO;
 import py.com.progweb.prueba.ejb.ClienteDAO;
 import py.com.progweb.prueba.ejb.RangoDAO;
 import py.com.progweb.prueba.ejb.ValeDAO;
 import py.com.progweb.prueba.model.Bolsa;
-import py.com.progweb.prueba.model.CargaPuntosMsg;
 import py.com.progweb.prueba.model.Cliente;
-import py.com.progweb.prueba.model.ConsultaPuntosMsg;
 import py.com.progweb.prueba.model.Rango;
-import py.com.progweb.prueba.model.UtilizarPuntosMsg;
 import py.com.progweb.prueba.model.Vale;
+
+
+
 
 @Path("servicios")
 @Consumes("application/json")
@@ -64,8 +73,10 @@ public class ServiciosRest {
     public Response utilizarPuntos(@PathParam("idCliente") String idCliente, @PathParam("idUso_detalle") int idUso_detalle){
         Vale vale = valedao.obtener_vale(idUso_detalle);
         int puntosVale = vale.getptsRequeridos();
+        Cliente cliente = clientedao.obtener_cliente(idCliente);
         List<Bolsa> bolsas = bolsadao.lista_cliente(idCliente);
         int totalPuntosCliente = getTotalPuntosCliente(bolsas);
+
         if(totalPuntosCliente >= puntosVale){
             for(Bolsa bolsa : bolsas){
                 int saldoBolsa = bolsa.getptsSaldo();
@@ -78,8 +89,11 @@ public class ServiciosRest {
                     bolsa.setptsUtilizados(bolsa.getptsUtilizados() + puntosVale);
                     bolsadao.agregar(bolsa);
                     puntosVale -= saldoBolsa;
-                    if(puntosVale <= 0 )
-                        break; 
+                    
+                    if(puntosVale <= 0 ){
+                        enviarCorreo(cliente,"Se han canjeado exitosamente " + vale.getptsRequeridos() + " puntos!");
+                        break;
+                    } 
                 }
             }
 
@@ -87,6 +101,44 @@ public class ServiciosRest {
         //else no tiene los puntos requeridos mandar mensaje de error? uwu
         return Response.ok().build(); 
     }
+
+    private void enviarCorreo(Cliente cliente, String mensaje){
+        final String username = "proyecto.backend.2021@gmail.com";
+        final String password = "backend2021";
+
+        Properties prop = new Properties();
+        prop.put("mail.smtp.host", "smtp.gmail.com");
+        prop.put("mail.smtp.port", "465");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.socketFactory.port", "465");
+        prop.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        
+        Session session = Session.getInstance(prop,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
+
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("proyecto.backend.2021@gmail.com"));
+            message.setRecipients(
+                    Message.RecipientType.TO,
+                    InternetAddress.parse(cliente.getEmail())
+            );
+            message.setSubject("CANJE DE VALES");
+            message.setText("Señor/Señora/Señore " + cliente.getNombre() + " " + cliente.getApellido() + ","
+                    + "\n\n" + mensaje);
+
+            Transport.send(message);
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
+    
     
     @GET
     @Path("/consultar_puntos/{monto}")
