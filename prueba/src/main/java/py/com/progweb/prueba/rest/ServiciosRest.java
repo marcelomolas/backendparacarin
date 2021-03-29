@@ -18,12 +18,14 @@ import javax.ws.rs.core.Response;
 import py.com.progweb.prueba.ejb.BolsaDAO;
 import py.com.progweb.prueba.ejb.ClienteDAO;
 import py.com.progweb.prueba.ejb.RangoDAO;
+import py.com.progweb.prueba.ejb.ValeDAO;
 import py.com.progweb.prueba.model.Bolsa;
 import py.com.progweb.prueba.model.CargaPuntosMsg;
 import py.com.progweb.prueba.model.Cliente;
 import py.com.progweb.prueba.model.ConsultaPuntosMsg;
 import py.com.progweb.prueba.model.Rango;
 import py.com.progweb.prueba.model.UtilizarPuntosMsg;
+import py.com.progweb.prueba.model.Vale;
 
 @Path("servicios")
 @Consumes("application/json")
@@ -38,6 +40,10 @@ public class ServiciosRest {
 
     @Inject
     private BolsaDAO bolsadao;
+
+    @Inject
+    private ValeDAO valedao;
+    
 
     @POST
     @Path("/carga_de_puntos/{idCliente}&{monto}")
@@ -55,8 +61,30 @@ public class ServiciosRest {
     
     @POST
     @Path("/uso_de_puntos/{idCliente}&{idUso_detalle}")
-    public Response utilizarPuntos(@PathParam("idCliente") int idCliente, @PathParam("idUso_detalle") int idUso_detalle){
-        
+    public Response utilizarPuntos(@PathParam("idCliente") String idCliente, @PathParam("idUso_detalle") int idUso_detalle){
+        Vale vale = valedao.obtener_vale(idUso_detalle);
+        int puntosVale = vale.getptsRequeridos();
+        List<Bolsa> bolsas = bolsadao.lista_cliente(idCliente);
+        int totalPuntosCliente = getTotalPuntosCliente(bolsas);
+        if(totalPuntosCliente >= puntosVale){
+            for(Bolsa bolsa : bolsas){
+                int saldoBolsa = bolsa.getptsSaldo();
+                if(saldoBolsa > 0 ){
+                    if(saldoBolsa - puntosVale <= 0 ){
+                        bolsa.setptsSaldo(0);  
+                    }else{
+                        bolsa.setptsSaldo(saldoBolsa - puntosVale);
+                    }
+                    bolsa.setptsUtilizados(bolsa.getptsUtilizados() + puntosVale);
+                    bolsadao.agregar(bolsa);
+                    puntosVale -= saldoBolsa;
+                    if(puntosVale <= 0 )
+                        break; 
+                }
+            }
+
+        }
+        //else no tiene los puntos requeridos mandar mensaje de error? uwu
         return Response.ok().build(); 
     }
     
@@ -96,6 +124,14 @@ public class ServiciosRest {
         bolsa.setfechaAsig(Date.from(Instant.now()));
         bolsa.setfechaCaduc(Date.from(Instant.now().plus( 7, ChronoUnit.DAYS)));
         this.bolsadao.agregar(bolsa);
+    }
+
+    private int getTotalPuntosCliente(List<Bolsa> bolsas) {
+        int total = 0;
+        for(Bolsa bolsa : bolsas)
+            if(bolsa.getptsSaldo() > 0 )
+                total += bolsa.getptsSaldo();
+        return total;   
     }
 
 }

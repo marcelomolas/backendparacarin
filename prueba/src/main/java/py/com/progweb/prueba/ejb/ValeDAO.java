@@ -32,4 +32,9 @@ public class ValeDAO {
         Vale v = this.en.find(Vale.class, id);
         this.en.remove(v);
     }
+
+    public Vale obtener_vale(int id){
+        Vale v = this.en.find(Vale.class, id);
+        return vale;
+    }
 }
