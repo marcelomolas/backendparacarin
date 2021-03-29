@@ -50,4 +50,9 @@ public class ClienteDAO {
         Cliente c = this.en.find(Cliente.class, id);
         this.en.remove(c);
     }
+
+    public Cliente obtener_cliente(String id){
+        Cliente c = this.en.find(Cliente.class, Integer.parseInt(id));
+        return c;
+    }
 }
