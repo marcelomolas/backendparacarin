@@ -24,7 +24,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
-
+import javax.ws.rs.core.Response.Status;
 
 import py.com.progweb.prueba.ejb.BolsaDAO;
 import py.com.progweb.prueba.ejb.ClienteDAO;
@@ -117,6 +117,8 @@ public class ServiciosRest {
                 }
             }
 
+        }else{
+            return Response.status(Status.BAD_REQUEST).entity("No tiene los suficientes puntos para realizar esta operacion!!!").build();
         }
         //else no tiene los puntos requeridos mandar mensaje de error? uwu
         return Response.ok().build(); 
@@ -150,14 +152,13 @@ public class ServiciosRest {
         final String username = "proyecto.backend.2021@gmail.com";
         final String password = "backend2021";
 
-        Properties prop = new Properties();
-        prop.put("mail.smtp.host", "smtp.gmail.com");
-        prop.put("mail.smtp.port", "465");
-        prop.put("mail.smtp.auth", "true");
-        prop.put("mail.smtp.socketFactory.port", "465");
-        prop.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
         
-        Session session = Session.getInstance(prop,
+        Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(username, password);
