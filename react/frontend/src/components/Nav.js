@@ -31,9 +31,6 @@ function Nav(){
                 <Button>
                     <Link style={navStyle} to='/consultas'>Consultas</Link>
                 </Button>
-                <Button>
-                    <Link style={navStyle} to='/servicios'>Servicios</Link>
-                </Button>
                 </Toolbar>
             </AppBar>
         </div>

@@ -5,7 +5,6 @@ import Vales from './components/Vales'
 import Rangos from './components/Rangos'
 import Vencimientos from './components/Vencimientos'
 import Consultas from './components/Consultas'
-import Servicios from './components/Servicios'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
           <Route path="/rangos" component={Rangos} />
           <Route path="/vencimientos" component={Vencimientos} />
           <Route path="/consultas" component={Consultas} />
-          <Route path="/servicios" component={Servicios} />
         </Switch>
       </div>
     </Router>

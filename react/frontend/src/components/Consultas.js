@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import '../App.css';
 import {Table, TableBody, TextField, TableCell, TableContainer, TableHead, TableRow, makeStyles, Card,
-        Button, Box, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText, Menu, MenuItem} from '@material-ui/core';
+        Button, Box, Menu, MenuItem} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     table: {
@@ -137,57 +137,6 @@ function Consultas(){
         setShowConsultaBolsaCliente(false);
         setShowConsultaBolsaRango(false);
     };
-
-    const [uso,setUso] = useState(
-    {
-        cliente:     {
-            nombre: "",
-            apellido: "",
-            email: "",
-            telefono: "",
-            nro_documento: 0,
-            tipo_documento: "",
-            nacionalidad: "",
-            fecha_nac: "",
-        },
-        pts_utilizados: 0,
-        fecha: "",
-        descripcion: {
-            desc: "",
-            ptsRequeridos: 0,
-        },
-    })
-    const [bolsa,setBolsa] = useState(
-    {
-        cliente:     {
-            nombre: "",
-            apellido: "",
-            email: "",
-            telefono: "",
-            nro_documento: 0,
-            tipo_documento: "",
-            nacionalidad: "",
-            fecha_nac: "",
-        },
-        fechaAsig: "",
-        fechaCaduc: "",
-        ptsTotal: 0,
-        ptsUtilizados: 0,
-        ptsSaldo: 0,
-        monto: 0,
-    })
-
-    const [cliente,setCliente] = useState(
-        {
-            nombre: "",
-            apellido: "",
-            email: "",
-            telefono: "",
-            nro_documento: 0,
-            tipo_documento: "",
-            nacionalidad: "",
-            fecha_nac: "",
-    })
 
     const ConsultaVencimiento = (props) => {
         return(
@@ -491,14 +440,14 @@ function Consultas(){
                 <TextField
                 autoFocus
                 margin="dense"
-                id="IDCliente"
+                id="IDCliente1"
                 label="ID del cliente"
                 type="number"
-                value = {IDCliente.IDCliente} 
+                value = {IDCliente1.IDCliente1} 
                 onChange = {(event) => {
-                    handleIDClienteChange("IDCliente",event.target.value);onChange7(IDCliente)
+                    handleIDCliente1Change("IDCliente1",event.target.value);onChange7(IDCliente1)
                 }}
-                onBlur = {(event) => {onChange7(IDCliente)}}
+                onBlur = {(event) => {onChange7(IDCliente1)}}
                 />
                 </div>
                 <Table className={classes.table} aria-label="simple table">
@@ -536,14 +485,14 @@ function Consultas(){
                 <TextField
                 autoFocus
                 margin="dense"
-                id="IDCliente"
+                id="IDCliente2"
                 label="ID del cliente"
                 type="number"
-                value = {IDCliente.IDCliente} 
+                value = {IDCliente2.IDCliente2} 
                 onChange = {(event) => {
-                    handleIDClienteChange("IDCliente",event.target.value);onChange8(IDCliente)
+                    handleIDCliente2Change("IDCliente2",event.target.value);onChange8(IDCliente2)
                 }}
-                onBlur = {(event) => {onChange8(IDCliente)}}
+                onBlur = {(event) => {onChange8(IDCliente2)}}
                 />
                 </div>
                 <Table className={classes.table} aria-label="simple table">
@@ -587,6 +536,7 @@ function Consultas(){
                 <TextField
                 margin="dense"
                 id="lim_inf"
+                autoFocus
                 label="Rango Inferior"
                 InputLabelProps={{ shrink: true }}
                 type="number"
@@ -601,6 +551,7 @@ function Consultas(){
                 <TextField
                 margin="dense"
                 id="lim_sup"
+                autoFocus
                 label="Rango Superior"
                 InputLabelProps={{ shrink: true }}
                 type="number"
@@ -651,7 +602,8 @@ function Consultas(){
     const handleCumpleChange = (field, value) => setCumple((prev) => ({ ...prev, [field]: value }));
     const handleConceptoChange = (field, value) => setConcepto((prev) => ({ ...prev, [field]: value }));
     const handleFechaChange = (field, value) => setFecha((prev) => ({ ...prev, [field]: value }));
-    const handleIDClienteChange = (field, value) => setIDCliente((prev) => ({ ...prev, [field]: value }));
+    const handleIDCliente1Change = (field, value) => setIDCliente1((prev) => ({ ...prev, [field]: value }));
+    const handleIDCliente2Change = (field, value) => setIDCliente2((prev) => ({ ...prev, [field]: value }));
     const handleLim_InfChange = (field, value) => setLim_Inf((prev) => ({ ...prev, [field]: value }));
     const handleLim_SupChange = (field, value) => setLim_Sup((prev) => ({ ...prev, [field]: value }));
     const onChange1 = async (dias) => {
@@ -696,15 +648,15 @@ function Consultas(){
                 return <Consultas usos = {data} />
                 }).catch(console.log);
     }
-    const onChange7 = async (IDCliente) => {
-        await axios.get("http://localhost:8080/prueba/consultas/usocliente/" + String(IDCliente.IDCliente))
+    const onChange7 = async (IDCliente1) => {
+        await axios.get("http://localhost:8080/prueba/consultas/usocliente/" + String(IDCliente1.IDCliente1))
                 .then(response => response.data).then(data => {
                 setDatos(data);
                 return <Consultas usos = {data} />
                 }).catch(console.log);
     }
-    const onChange8 = async (IDCliente) => {
-        await axios.get("http://localhost:8080/prueba/consultas/bolsacliente/" + String(IDCliente.IDCliente))
+    const onChange8 = async (IDCliente2) => {
+        await axios.get("http://localhost:8080/prueba/consultas/bolsacliente/" + String(IDCliente2.IDCliente2))
                 .then(response => response.data).then(data => {
                 setDatos(data);
                 return <Consultas bolsas = {data} />
@@ -741,10 +693,15 @@ function Consultas(){
         {
             fecha: "",
         })
-    const [IDCliente,setIDCliente] = useState(
+    const [IDCliente1,setIDCliente1] = useState(
         {
-            IDCliente: "",
+            IDCliente1: "",
         })
+    const [IDCliente2,setIDCliente2] = useState(
+        {
+            IDCliente2: "",
+        })
+        
     const [lim_inf,setLim_Inf] = useState(
         {
             lim_inf: "",
@@ -789,6 +746,7 @@ function Consultas(){
             <MenuItem onClick={handleClose1}>Consulta de Cliente por Vencimiento</MenuItem>
             <MenuItem onClick={handleClose2}>Consulta de Cliente por Nombre</MenuItem>
             <MenuItem onClick={handleClose3}>Consulta de Cliente por Apellido</MenuItem>
+            <MenuItem onClick={handleClose4}>Consulta de Cliente por Fecha de Nacimiento</MenuItem>
             <MenuItem onClick={handleCloseA}>Colapsar</MenuItem>
         </Menu>
         <Menu
@@ -825,6 +783,10 @@ function Consultas(){
             }
             {showConsultaApellido ?
                 <ConsultaApellido /> :
+                null
+            }
+            {showConsultaCumple ?
+                <ConsultaCumple /> :
                 null
             }
             {showConsultaUsoConcepto ?

@@ -151,7 +151,7 @@ function Rangos(){
             margin="dense"
             id="lim_inf"
             label="Limite Inferior"
-            type="number"
+            type="text"
             fullWidth
             InputLabelProps={{ shrink: true }}
             value = {rango.lim_inf} 
@@ -164,7 +164,7 @@ function Rangos(){
             margin="dense"
             id="lim_sup"
             label="Limite Superior"
-            type="number"
+            type="text"
             fullWidth
             InputLabelProps={{ shrink: true }}
             value = {rango.lim_sup} 

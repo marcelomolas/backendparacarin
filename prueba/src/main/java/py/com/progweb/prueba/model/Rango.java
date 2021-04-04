@@ -20,10 +20,10 @@ public class Rango {
     private Integer idRango;
     @Column(name = "lim_inf")
     @Basic(optional = false)
-    private Integer lim_inf;
+    private Integer lim_inf = 0;
     @Column(name = "lim_sup")
     @Basic(optional = false)
-    private Integer lim_sup;
+    private Integer lim_sup = 100000000;
     @Column(name = "conversion")
     @Basic(optional = false)
     private Integer conversion;
